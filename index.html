@@ -10,9 +10,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
+  <!-- EmailJS SDK for form submission -->
+  <script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
 
   <title>Coin Craze - Crypto Exchange & Wallet</title>
-  
+
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -21,6 +23,102 @@
   <link rel="stylesheet" href="assets/css/templatemo-space-dynamic.css">
   <link rel="stylesheet" href="assets/css/animated.css">
   <link rel="stylesheet" href="assets/css/owl.css">
+
+  <!-- Inline CSS for Delete Account Section -->
+  <style>
+    #delete-account {
+      background-color: #1e1e1e;
+      padding: 60px 0;
+    }
+    #delete-account .section-heading h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    #delete-account .section-heading p {
+      color: #ccc;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    #delete-account .delete-form-container {
+      background: #2a2a2a;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+    #delete-account .delete-form-container:hover {
+      transform: translateY(-5px);
+    }
+    #delete-account .form-control {
+      background: #333;
+      border: 1px solid #444;
+      color: #fff;
+      padding: 12px;
+      border-radius: 5px;
+      font-size: 1rem;
+      margin-bottom: 15px;
+    }
+    #delete-account .form-control:focus {
+      border-color: #ff4a57;
+      box-shadow: 0 0 5px rgba(255, 74, 87, 0.5);
+      outline: none;
+    }
+    #delete-account .main-button {
+      background: #ff4a57;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+    #delete-account .main-button:hover {
+      background: #e63946;
+    }
+    #delete-account .form-message {
+      font-size: 0.9rem;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      opacity: 0;
+      animation: fadeIn 0.5s forwards;
+    }
+    #delete-account .form-message.success {
+      background: #28a745;
+      color: #fff;
+    }
+    #delete-account .form-message.error {
+      background: #dc3545;
+      color: #fff;
+    }
+    #delete-account .spinner {
+      display: none;
+      border: 3px solid #f3f3f3;
+      border-top: 3px solid #ff4a57;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto;
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @media (max-width: 768px) {
+      #delete-account .section-heading h2 {
+        font-size: 2rem;
+      }
+      #delete-account .delete-form-container {
+        padding: 20px;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -57,6 +155,7 @@
               <li class="scroll-to-section"><a href="#portfolio">Our Services</a></li>
               <li class="scroll-to-section"><a href="#blog">News</a></li>
               <li class="scroll-to-section"><a href="#contact">Contact Us</a></li>
+              <li class="scroll-to-section"><a href="#delete-account">Delete Account</a></li>
               <li class="scroll-to-section">
                 <div class="main-red-button"><a href="#contact">Get Started</a></div>
               </li>
@@ -279,7 +378,7 @@
   <div id="blog" class="our-blog section">
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.25s">
+        <div class="col-lg-6 wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.;AA25s">
           <div class="section-heading">
             <h2>Stay Updated with <em>Crypto</em> <span>News</span></h2>
           </div>
@@ -410,25 +509,89 @@
     </div>
   </div>
 
-<footer style="color: white; padding: 30px 0;">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12 wow fadeIn text-center" data-wow-duration="1s" data-wow-delay="0.25s">
-        <p style="margin-bottom: 5px;">
-          © Copyright 2025 Coin Craze. All Rights Reserved.
-        </p>
-        <p style="margin-bottom: 10px;">
-          Powered By: 
-          <a rel="nofollow" href="https://itio.in/" style="color: #ff4a57;">ITIO INNOVEX PVT. LTD</a>
-        </p>
-
-        <!-- 👇 Privacy Policy Link with same color -->
-        <a href="privacy-policy.html" style="color: #ff4a57; text-decoration: underline;">Privacy Policy</a>
+  <!-- Enhanced Account Deletion Section -->
+  <div id="delete-account" class="contact-us section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 align-self-center wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay="0.25s">
+          <div class="section-heading">
+            <h2>Request Account Deletion</h2>
+            <p>
+              Want to delete your Coin Craze account? Submit the form below, and our team will process your request within 7 working days. 
+              For more details, see our <a href="privacy-policy.html" style="color: #ff4a57; text-decoration: underline;">Privacy Policy</a>.
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-6 wow fadeInRight" data-wow-duration="0.5s" data-wow-delay="0.25s">
+          <div class="delete-form-container">
+            <form id="delete-account-form" action="/submit-deletion" method="post" aria-labelledby="delete-account-heading">
+              <div class="row">
+                <div class="col-lg-12">
+                  <fieldset>
+                    <label for="delete-email" class="sr-only">Registered Email</label>
+                    <input 
+                      type="email" 
+                      name="delete-email" 
+                      id="delete-email" 
+                      class="form-control" 
+                      placeholder="Enter your registered email" 
+                      required 
+                      aria-required="true"
+                      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                      title="Please enter a valid email address"
+                    >
+                  </fieldset>
+                </div>
+                <div class="col-lg-12">
+                  <fieldset>
+                    <label for="delete-message" class="sr-only">Reason for Deletion</label>
+                    <textarea 
+                      name="delete-message" 
+                      id="delete-message" 
+                      class="form-control" 
+                      placeholder="Reason for deletion (optional)"
+                      aria-describedby="delete-message-desc"
+                    ></textarea>
+                    <small id="delete-message-desc" class="form-text text-muted">
+                      Providing a reason helps us improve our services.
+                    </small>
+                  </fieldset>
+                </div>
+                <div class="col-lg-12">
+                  <fieldset>
+                    <button type="submit" class="main-button" id="delete-submit">Submit Deletion Request</button>
+                  </fieldset>
+                </div>
+              </div>
+              <div id="form-message" class="form-message" style="display: none;"></div>
+              <div id="form-spinner" class="spinner"></div>
+              <p style="margin-top: 15px; color: #ccc; font-size: 0.9rem;">
+                Alternatively, email us at 
+                <a href="mailto:support@coincraze.com" style="color: #ff4a57;">support@coincraze.com</a> for manual deletion requests.
+              </p>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</footer>
 
+  <footer style="color: white; padding: 30px 0;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 wow fadeIn text-center" data-wow-duration="1s" data-wow-delay="0.25s">
+          <p style="margin-bottom: 5px;">
+            © Copyright 2025 Coin Craze. All Rights Reserved.
+          </p>
+          <p style="margin-bottom: 10px;">
+            Powered By: 
+            <a rel="nofollow" href="https://itio.in/" style="color: #ff4a57;">ITIO INNOVEX PVT. LTD</a>
+          </p>
+          <a href="privacy-policy.html" style="color: #ff4a57; text-decoration: underline;">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
   <!-- Scripts -->
   <script src="vendor/jquery/jquery.min.js"></script>
@@ -438,6 +601,47 @@
   <script src="assets/js/imagesloaded.js"></script>
   <script src="assets/js/templatemo-custom.js"></script>
 
+  <!-- Inline JavaScript for Delete Account Form -->
+  <script>
+    $(document).ready(function() {
+      // Initialize EmailJS with your public key (replace with your actual key)
+      emailjs.init('YOUR_EMAILJS_PUBLIC_KEY'); // Replace with your EmailJS public key
+
+      $('#delete-account-form').on('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        const email = $('#delete-email').val().trim();
+        const message = $('#delete-message').val().trim();
+        const formMessage = $('#form-message');
+        const formSpinner = $('#form-spinner');
+        const submitButton = $('#delete-submit');
+
+        // Client-side validation
+        if (!email) {
+          formMessage.text('Please enter a valid email address.').addClass('error').removeClass('success').show();
+          return;
+        }
+
+        // Show spinner and disable button
+        formSpinner.show();
+        submitButton.prop('disabled', true).text('Submitting...');
+
+        // Send email via EmailJS
+        emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+          email: email,
+          message: message || 'No reason provided'
+        }).then(function() {
+          formMessage.text('Your deletion request has been submitted successfully. We will process it within 7 working days.').addClass('success').removeClass('error').show();
+          $('#delete-account-form')[0].reset(); // Clear the form
+        }, function(error) {
+          formMessage.text('An error occurred. Please try again or contact support@coincraze.com.').addClass('error').removeClass('success').show();
+        }).finally(function() {
+          formSpinner.hide();
+          submitButton.prop('disabled', false).text('Submit Deletion Request');
+        });
+      });
+    });
+  </script>
 </body>
 
 </html>
